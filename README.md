@@ -2,7 +2,7 @@
 插件化
 
 # 使用
-#### 1.宿主和插件需要依赖jplush <br/>
+#### 1.宿主和插件需要依赖jplugin <br/>
 #### 2.插件中的Activity需要继承jplugin中的BasePluginActivity <br/>
 #### 3.宿主中初始化和加载插件 <br/>
 ##### &emsp;&emsp;1).初始化 <br/>
