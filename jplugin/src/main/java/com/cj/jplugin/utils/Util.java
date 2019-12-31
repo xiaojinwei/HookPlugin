@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.text.TextUtils;
 
 import com.cj.jplugin.bundle.BundleParser;
 
@@ -22,6 +24,33 @@ public class Util {
         PackageInfo apkInfo = getApkInfo(context, apkPath);
         if(apkInfo != null){
             return apkInfo.packageName;
+        }
+        return null;
+    }
+
+    /**
+     * 构造插件Resources
+     * @param context
+     * @param apkPath
+     * @return
+     */
+    public static Resources createPluginResources(Context context, String apkPath){
+        PackageManager pm = context.getPackageManager();
+        PackageInfo info = pm.getPackageArchiveInfo(apkPath,
+                PackageManager.GET_ACTIVITIES | PackageManager.GET_SERVICES | PackageManager.GET_PROVIDERS | PackageManager.GET_RECEIVERS | PackageManager.GET_META_DATA);
+        if (info == null || info.applicationInfo == null) {
+            return null;
+        }
+        info.applicationInfo.sourceDir = apkPath;
+        info.applicationInfo.publicSourceDir = apkPath;
+
+        if (TextUtils.isEmpty(info.applicationInfo.processName)) {
+            info.applicationInfo.processName = info.applicationInfo.packageName;
+        }
+        try {
+             return pm.getResourcesForApplication(info.applicationInfo);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
         return null;
     }
