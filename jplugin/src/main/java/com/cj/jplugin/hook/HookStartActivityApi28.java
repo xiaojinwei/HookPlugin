@@ -7,6 +7,10 @@ import android.os.Message;
 import java.lang.reflect.Field;
 import java.util.List;
 
+/**
+ * 变更：
+ * Handle处理的生命周期使用了LaunchActivityItem extend ClientTransactionItem等 TRANSACTION
+ */
 public class HookStartActivityApi28 extends HookStartActivityApi26 {
     public static final int EXECUTE_TRANSACTION = 159;
 

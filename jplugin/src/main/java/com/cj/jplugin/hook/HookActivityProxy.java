@@ -12,8 +12,10 @@ public class HookActivityProxy implements HookStartActivity {
             this.hook = new HookStartActivityApi25(context,proxyClass);
         } else if (Build.VERSION.SDK_INT <= 27) {
             this.hook = new HookStartActivityApi26(context,proxyClass);
-        }else {
+        }else if(Build.VERSION.SDK_INT <= 28){
             this.hook = new HookStartActivityApi28(context,proxyClass);
+        }else {
+            this.hook = new HookStartActivityApi29(context,proxyClass);
         }
     }
 

@@ -29,8 +29,9 @@ public abstract class BaseHookStartActivity implements HookStartActivity {
         return resolveInfos != null && !resolveInfos.isEmpty();
     }
 
-    //SDK < 26 , SDK >= 26
+    //SDK < 26 , SDK >= 26 , SDK >= 29
     //SDK 26的Binder使用了AIDL
+    //SDK 29的Binder ActivityManager变成了ActivityTaskManager
     public abstract void hookStartActivity();
     //SDK < 28 , SDK >= 28
     //SDK 28启动Activity使用了TRANSACTION

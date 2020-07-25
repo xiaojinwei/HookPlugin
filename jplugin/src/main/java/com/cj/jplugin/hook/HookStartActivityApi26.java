@@ -5,6 +5,10 @@ import android.content.Context;
 import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;
 
+/**
+ * 变更：
+ * ActivityManagerNative -> ActivityManager 使用了AIDL
+ */
 public class HookStartActivityApi26 extends HookStartActivityApi25 {
 
     public HookStartActivityApi26(Context context, Class<?> proxyClass) {

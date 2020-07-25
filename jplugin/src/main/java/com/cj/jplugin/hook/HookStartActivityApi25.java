@@ -11,6 +11,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * 1. IActivityManager, ActivityManagerNative, Singleton
+ * 2. ActivityThread, Handler
+ */
 public class HookStartActivityApi25 extends BaseHookStartActivity {
 
     public static final int LAUNCH_ACTIVITY = 100;

@@ -1,6 +1,7 @@
 package com.cj.oneplugin;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -11,6 +12,8 @@ public class SecondActivity extends BasePluginActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second2);
+        TextView textView = findViewById(R.id.textView);
+        textView.setText(textView.getText().toString() + "\n" + getClass().getName());
         System.out.println("--------------------oneplugin-SecondActivity-onCreate");
     }
 

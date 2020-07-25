@@ -94,6 +94,7 @@ public class PluginManager {
         pluginInfo.setClassLoader(pluginDexClassLoader);
         //AssetManager pluginAssetManager = createPluginAssetManager(apkPath);//使用了反射@hide
         Resources pluginResources = Util.createPluginResources(mContext, apkPath);//无反射，无Hook
+        pluginResources = pluginResources == null ? createPluginResources(apkPath) : pluginResources;
         AssetManager pluginAssetManager = pluginResources != null ? pluginResources.getAssets() : null;
         pluginInfo.setAssetManager(pluginAssetManager);
         //Resources pluginResources = createPluginResources(apkPath);//使用了反射@hide
